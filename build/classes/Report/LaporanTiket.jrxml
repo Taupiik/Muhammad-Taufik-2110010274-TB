@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2f6edfe-0ac2-4f6a-b5a5-298b29a7538f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="33"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+    t.id_transaksi,
+    t.id_jadwal,
+    t.nik,
+    t.nama,
+    p.nama_pesawat,
+    t.jenis,
+    t.jumlah,
+    t.total
+FROM
+    transaksi t
+JOIN
+    pesawat p ON t.id_pesawat = p.id_pesawat
+WHERE
+    t.id_transaksi = ?;]]>
+	</queryString>
+	<field name="id_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_jadwal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_pesawat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kota_awal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kota_tujuan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jam_terbang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nik" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_pesawat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="24" width="294" height="42" uuid="58318bc7-9ca9-4609-a55c-348636b7062a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto Cn" size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AIR TICKET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="542" y="35" width="210" height="31" uuid="9f7b3b65-40a6-4eca-982e-a1d8cbd48321"/>
+				<textElement textAlignment="Center">
+					<font fontName="Roboto Cn" size="24" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Boarding Pass]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="e8afba92-06f9-452e-ade2-48370755f3bb"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="100" height="20" uuid="abba31a9-c548-4fbd-8485-311e265110ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Penumpang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="0" width="100" height="20" uuid="d2603eb9-4ad1-4c11-8946-b67688f07b85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jam Terbang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="3" width="100" height="20" uuid="dea9163f-c1c3-4174-813b-b7176a156df2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maskapal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="596" y="0" width="100" height="20" uuid="8143c4b6-4cf4-4ad5-bb92-e9e5039087e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Tiket]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="0" width="100" height="20" uuid="8d18107d-3ce8-423c-bca5-339ac94984f3"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="0" width="100" height="20" uuid="21757897-255f-4001-98a2-16a9c563ae8e"/>
+				<textFieldExpression><![CDATA[$F{jam_terbang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="0" width="100" height="20" uuid="808aebf2-0fb2-48b5-a7ee-473052640282"/>
+				<textFieldExpression><![CDATA[$F{nama_pesawat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="596" y="1" width="100" height="20" uuid="03491433-a9e5-4731-836f-064241e1da10"/>
+				<textFieldExpression><![CDATA[$F{jenis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="55" width="100" height="20" uuid="26e98038-2a04-43f0-b67b-2bc1d85eebf9"/>
+				<textFieldExpression><![CDATA[$F{kota_tujuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="35" width="100" height="20" uuid="7de64aed-42eb-437b-91b6-345c26d70ec3"/>
+				<textFieldExpression><![CDATA[$F{kota_awal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="35" width="30" height="20" uuid="70482c62-c722-4e86-be65-f56c2150aba2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dari:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="55" width="30" height="20" uuid="f881cd4a-3bdf-41bc-a5e6-789e05db0713"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ke:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="22" width="100" height="20" uuid="c792eec4-7dcb-4481-a7e5-824aa299da47"/>
+				<textFieldExpression><![CDATA[$F{id_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="22" width="100" height="20" uuid="b6c9b063-e83a-4b17-bcbb-aed7aeb7da41"/>
+				<textFieldExpression><![CDATA[$F{id_jadwal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
